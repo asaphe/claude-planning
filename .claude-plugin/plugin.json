@@ -1,0 +1,8 @@
+{
+  "name": "planning",
+  "description": "Phase-gated planning/RFC workflow: research before solving, an artifact template, an open-questions gate, an approval gate before execution, and epic-plus-research-only ticket sequencing.",
+  "version": "1.0.0",
+  "author": {
+    "name": "asaphe"
+  }
+}
