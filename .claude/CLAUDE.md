@@ -11,5 +11,5 @@ Claude Code plugin: phase-gated planning/RFC workflow.
   Drive references, or hardcoded company-internal identifiers (account IDs,
   tenant IDs, internal service names) — this is meant to be installed by
   anyone, on any machine.
-- Run `claude plugin validate .` locally before pushing — there is no CI on
-  this repo yet, so nothing else catches a manifest typo.
+- Run `claude plugin validate .` locally before pushing — CI runs the same
+  check, but locally is where a manifest typo costs nothing to fix.
