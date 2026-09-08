@@ -1,8 +1,11 @@
 {
   "name": "planning",
   "description": "Phase-gated planning/RFC workflow: research before solving, an artifact template, an open-questions gate, an approval gate before execution, and epic-plus-research-only ticket sequencing.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": {
     "name": "asaphe"
-  }
+  },
+  "homepage": "https://github.com/asaphe/claude-planning",
+  "repository": "https://github.com/asaphe/claude-planning",
+  "license": "MIT"
 }
