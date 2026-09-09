@@ -14,7 +14,6 @@ description: >-
   remediation-planning ask, including long freeform prompts that never say the word "plan".
   Usage - /planning [freeform goal/problem statement, or paste context — args are optional]
 user-invocable: true
-allowed-tools: Agent, Read, Glob, Grep, Write, Edit, Artifact, AskUserQuestion, WebFetch, WebSearch, Bash(mkdir *), Bash(git *), Bash(gh *), Bash(date *), Bash(cat *), Bash(ls *), Bash(jq *), Bash(grep *), Bash(find *)
 argument-hint: "[freeform goal/problem statement, or paste context — args are optional]"
 ---
 

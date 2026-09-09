@@ -36,6 +36,9 @@ review, while an execution-ready LLD specifies implementation and verification.
 Unverified claims remain explicit gaps. Completing or reviewing a document
 does not authorize publishing it or executing the proposed work.
 
+Both skills use the session's normal tool permissions; they do not pre-approve
+commands through an `allowed-tools` override.
+
 ## Contributing
 
 Validate the manifest locally before pushing:
