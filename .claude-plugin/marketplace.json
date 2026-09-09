@@ -1,6 +1,6 @@
 {
   "name": "claude-planning",
-  "description": "Phase-gated planning/RFC workflow for Claude Code.",
+  "description": "Planning and architecture-document skills for Claude Code.",
   "owner": {
     "name": "asaphe"
   },
@@ -8,7 +8,7 @@
     {
       "name": "planning",
       "source": "./",
-      "description": "Phase-gated planning/RFC workflow: research before solving, an artifact template, an open-questions gate, an approval gate before execution, and epic-plus-research-only ticket sequencing."
+      "description": "Phase-gated planning plus architecture-document authoring and review: evidence requirements, HLD/LLD/RFC/ADR outlines, and approval gates before execution."
     }
   ]
 }

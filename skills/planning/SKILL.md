@@ -12,9 +12,8 @@ description: >-
   mode. Distinct from a code/PR review skill (reviews something that already exists) — this
   produces the plan/RFC in the first place. Invoke proactively for any open-ended design/RFC/
   remediation-planning ask, including long freeform prompts that never say the word "plan".
-  Usage - /planning [freeform goal/problem statement, or paste context — args are optional]
+  Usage - /planning:planning [freeform goal/problem statement, or paste context — args are optional]
 user-invocable: true
-allowed-tools: Agent, Read, Glob, Grep, Write, Edit, Artifact, AskUserQuestion, WebFetch, WebSearch, Bash(mkdir *), Bash(git *), Bash(gh *), Bash(date *), Bash(cat *), Bash(ls *), Bash(jq *), Bash(grep *), Bash(find *)
 argument-hint: "[freeform goal/problem statement, or paste context — args are optional]"
 ---
 
@@ -25,8 +24,8 @@ pattern of corrections seen across many planning sessions: don't solve before re
 the open questions instead of assuming, a draft artifact isn't the final RFC, read the thing
 before judging it, don't fork a duplicate doc, show the plan before executing it.
 
-This skill **produces** a plan — it is not a review of one that already exists (that's a
-council/multi-perspective-review skill, if this repo has one) and not a review of merged code
+This skill **produces** a plan — it is not a review of one that already exists (use the bundled
+`/planning:design-doc review` for architecture documents) and not a review of merged code
 (that's `/pr-review`, if this repo has one).
 
 ## When to use
@@ -36,7 +35,7 @@ council/multi-perspective-review skill, if this repo has one) and not a review o
 - Large research-heavy initiatives before a project epic gets created (ClickUp, Linear, GitHub
   Issues, etc.)
 - A remediation or migration plan for an existing system
-- **Invoke this proactively** — not only when the user types "plan" or "/planning". A long
+- **Invoke this proactively** — not only when the user types "plan" or "/planning:planning". A long
   freeform message describing a goal, a problem to solve, or "how should we build X" is
   planning-shaped even without the word. Recognize that and self-invoke; don't wait to be asked,
   and don't re-derive this checklist from scratch inline instead of using it.
@@ -47,7 +46,8 @@ council/multi-perspective-review skill, if this repo has one) and not a review o
   the fire's out. Fix in foreground, plan/audit in background — don't gate an active unblock on
   running this whole pipeline first.
 - Reviewing an artifact someone else (or a past session) already produced, with no new research
-  needed — use a review/council-style skill instead, if one exists in this repo.
+  needed — use `/planning:design-doc review` for architecture documents, or a review/council-style
+  skill for other artifacts if one exists in this repo.
 - Reviewing merged or open PR code — use `/pr-review`, if this repo has one.
 - A single mechanical edit with an obvious correct answer — this pipeline is overhead, not
   rigor, on a one-line change.
@@ -65,6 +65,10 @@ confidence — a plan is not more done because it says "production-grade" more c
 
 ## Composes with
 
+- **[Architecture documents](../design-doc/SKILL.md)** — the bundled `/planning:design-doc`
+  skill owns document types, evidence requirements, section outlines, and the review rubric.
+  Read it for the Phase 2 draft and Phase 3 RFC. Its document guidance supplements the minimum
+  artifact template below; this workflow's research, open-question, and approval gates still apply.
 - **A structured multi-perspective review**, if this repo/team has one, for a Phase 2/3 decision
   point that's itself load-bearing: an RFC that's unusually large, a vendor choice with lock-in,
   a migration's sequencing. That kind of review checks a fixed artifact; this skill is what
@@ -112,8 +116,10 @@ this," not "is it a codebase citation vs. a live command."
 
 ## Phase 2 — Design draft
 
-Produce a working artifact — HTML, one you expect to revise, not the final form, structured per
-§ Artifact template below. This is the live-interactive-review case § Composes with carves out,
+Produce a working artifact — HTML unless the user requests another format, one you expect to
+revise, not the final form. Read the bundled [design-doc skill](../design-doc/SKILL.md) and its
+relevant references, and structure the draft per § Artifact template below. This is the
+live-interactive-review case § Composes with carves out,
 not the cross-session-persistence case, so it stays HTML throughout rather than a Markdown
 source rendered occasionally. If the `artifact-design` skill is available in your setup, don't
 invoke it via the `Skill` tool from inside this skill's own instructions — that self-chaining
@@ -175,6 +181,9 @@ everything actually designed?" — not just "did I ask some questions."
 
 The RFC is a different artifact from the Phase 2 draft, not a renamed copy of it:
 
+- **Document quality** — apply the bundled [review rubric](../design-doc/references/rubric.md)
+  to the completed RFC and resolve findings. Use its independent-review gate before calling a
+  consequential document execution-ready. A positive review does not replace the Approval gate.
 - **Full and complete** — every section in § Artifact template is filled in, no open rows; it
   must stand alone and cannot say "see the artifact" pointing at something only one person can
   open. This applies whether or not it's ever published anywhere beyond your local/repo copy.
