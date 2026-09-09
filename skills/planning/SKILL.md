@@ -12,7 +12,7 @@ description: >-
   mode. Distinct from a code/PR review skill (reviews something that already exists) — this
   produces the plan/RFC in the first place. Invoke proactively for any open-ended design/RFC/
   remediation-planning ask, including long freeform prompts that never say the word "plan".
-  Usage - /planning [freeform goal/problem statement, or paste context — args are optional]
+  Usage - /planning:planning [freeform goal/problem statement, or paste context — args are optional]
 user-invocable: true
 argument-hint: "[freeform goal/problem statement, or paste context — args are optional]"
 ---
@@ -35,7 +35,7 @@ This skill **produces** a plan — it is not a review of one that already exists
 - Large research-heavy initiatives before a project epic gets created (ClickUp, Linear, GitHub
   Issues, etc.)
 - A remediation or migration plan for an existing system
-- **Invoke this proactively** — not only when the user types "plan" or "/planning". A long
+- **Invoke this proactively** — not only when the user types "plan" or "/planning:planning". A long
   freeform message describing a goal, a problem to solve, or "how should we build X" is
   planning-shaped even without the word. Recognize that and self-invoke; don't wait to be asked,
   and don't re-derive this checklist from scratch inline instead of using it.
