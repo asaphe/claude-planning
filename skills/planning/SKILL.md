@@ -39,6 +39,11 @@ This skill **produces** a plan — it is not a review of one that already exists
   freeform message describing a goal, a problem to solve, or "how should we build X" is
   planning-shaped even without the word. Recognize that and self-invoke; don't wait to be asked,
   and don't re-derive this checklist from scratch inline instead of using it.
+- **A router firing is a floor, not the only trigger.** If the `intent-router` plugin is
+  installed, its planning intent fires on short imperative phrasing ("let's plan", "plan this")
+  and skips every prompt over 400 characters by design, to keep its false-positive rate low —
+  your own judgment covers the longer prompts. It is a plugin hook (the intent-router plugin's
+  `hooks/intent-router.sh`), not a standalone user-level hook script.
 
 ## When NOT to use
 
@@ -113,6 +118,15 @@ or a `file:line` from a file read fresh just now — or (b) explicitly flagged a
 Reciting a `file:line` from memory without having reopened it, a stale local clone, and PR
 descriptions are claims to verify, not evidence themselves — the test is "did you just read
 this," not "is it a codebase citation vs. a live command."
+
+**For a "detect X, remediate automatically" goal: the acceptable latency is a Phase 1 research
+question, not a Phase 2 design choice.** Research what mechanism the goal's own wording assumes
+(an existing job, an existing schedule, an existing polling loop) and verify its actual latency
+— then check that latency against what "automatic" is meant to improve on, usually a human
+reacting to an existing alert or page. If the inherited mechanism's latency doesn't clear that
+bar, say so explicitly before Phase 2 drafts any dispatch-mechanism option on top of it — a
+design can perfectly solve "how to dispatch the fix" and still deliver close to zero value if
+the detection step it's built on doesn't meet the timeframe "automatic" implies.
 
 ## Phase 2 — Design draft
 
