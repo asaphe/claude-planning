@@ -19,6 +19,13 @@ RFC phases; research and execution approval remain planning's responsibility.
 /plugin install planning@claude-planning
 ```
 
+From a terminal or a setup script, no session needed:
+
+```sh
+claude plugin marketplace add asaphe/claude-planning
+claude plugin install planning@claude-planning --scope user
+```
+
 ## Usage
 
 - `/planning:planning [goal or problem statement]` — runs the full pipeline.
@@ -26,8 +33,8 @@ RFC phases; research and execution approval remain planning's responsibility.
 - `/planning:design-doc review [path]` — reviews an existing document without editing it.
 - No hooks, no external config to scaffold — self-contained on install.
 
-Both skills live under `skills/`; the existing `/planning:planning` command
-is unchanged. The new skill includes [document outlines](skills/design-doc/references/spines.md),
+Both skills live under `skills/`. design-doc includes
+[document outlines](skills/design-doc/references/spines.md),
 a [review rubric](skills/design-doc/references/rubric.md), and
 [formatting guidance](skills/design-doc/references/formatting.md).
 
